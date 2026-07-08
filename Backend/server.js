@@ -1,3 +1,4 @@
+console.log("MONGO_URI =", process.env.MONGO_URI);
 require('dotenv').config();
 const express = require('express')
 const PORT = 4000
@@ -355,10 +356,15 @@ app.post('/wishlist/add', async (req, res) => {
     }
   });
 
+app.post('/ssignup', (req, resp) => {
 
+    const {name, email, password} = req.body;
 
+    console.log(req.body);
 
+    resp.send("Signup completed");
 
+});
 app.listen(PORT, () => {
     console.log(`server is running on  ${PORT}`)
 })  
