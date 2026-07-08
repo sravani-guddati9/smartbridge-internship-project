@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express')
 const PORT = 4000
 const cors = require('cors')
@@ -10,16 +11,16 @@ const items = require('./db/Seller/Additem')
 const myorders = require('./db/Users/myorders')
 const WishlistItem = require('./db/Users/Wishlist')     
 
-const app = express()
-
-app.use(express.json())
-
+const app = express();
 app.use(cors({
-    origin: ["http://localhost:5174"],
-    methods: ["POST", "GET", "DELETE", "PUT"],
+    origin: "http://localhost:5174",
+    methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
 }));
 
+app.use(express.json());
+
+app.use(express.json());
 const storage = multer.diskStorage({
     destination: 'uploads', // The directory where uploaded files will be stored
     filename: function (req, file, callback) {
@@ -152,19 +153,31 @@ app.post('/slogin', (req, resp) => {
 })
 
 // Register Api
-app.post('/ssignup', (req, resp) => {
-    const { name, email, password } = req.body;
-    seller.findOne({ email: email })
-        .then(use => {
-            if (use) {
-                resp.json("Already have an account")
-            } else {
-                seller.create({ email: email, name: name, password: password })
-                    .then(result => resp.json("  Account Created"))
-                    .catch(err => resp.json(err))
-            }
-        }).catch(err => resp.json("failed "))
-})
+app.post('/signup', async (req, resp) => {
+
+    try {
+        const { name, email, password } = req.body;
+
+        const use = await users.findOne({ email });
+
+        if (use) {
+            return resp.json("Already have an account");
+        }
+
+        const result = await users.create({
+            name,
+            email,
+            password
+        });
+
+        resp.json("Account Created");
+
+    } catch(err) {
+        console.log(err);
+        resp.status(500).json(err.message);
+    }
+
+});
 // addBook
 app.post('/items', upload.single('itemImage'), async (req, res) => {
     const { title, author, genre, description, price, userId, userName } = req.body;
