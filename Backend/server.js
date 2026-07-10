@@ -13,10 +13,11 @@ const myorders = require('./db/Users/myorders')
 const WishlistItem = require('./db/Users/Wishlist')     
 
 const app = express();
+const cors = require("cors");
+
 app.use(cors({
-    origin: "http://localhost:5174",
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true
+  origin: "https://smartbridge-internship-project.vercel.app",
+  credentials: true
 }));
 
 app.use(express.json());
