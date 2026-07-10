@@ -1,5 +1,6 @@
-console.log("MONGO_URI =", process.env.MONGO_URI);
 require('dotenv').config();
+
+console.log("MONGO_URI =", process.env.MONGO_URI);
 
 const express = require('express');
 const PORT = process.env.PORT || 4000;
@@ -7,6 +8,16 @@ const cors = require('cors');
 
 require('./db/config');
 const multer = require('multer');
+const path = require('path');
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "uploads/");
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + path.extname(file.originalname));
+  }
+});
 
 const Admin = require('./db/Admin/Admin');
 const users = require('./db/Users/userschema');
@@ -18,10 +29,13 @@ const WishlistItem = require('./db/Users/Wishlist');
 const app = express();
 
 app.use(cors({
-  origin: "https://smartbridge-internship-project.vercel.app",
+  origin: [
+    "http://localhost:5173",
+    "http://localhost:5174",
+    "https://smartbridge-internship-project.vercel.app"
+  ],
   credentials: true
 }));
-
 app.use(express.json());
 
 const upload = multer({ storage });
@@ -240,21 +254,7 @@ const { email, password } = req.body;
             }
         })
 })
-
-app.post('/signup', (req, resp) => {
-    const { name, email, password } = req.body;
-    users.findOne({ email: email })
-        .then(use => {
-            if (use) {
-                resp.json("Already have an account")
-            } else {
-                users.create({ email: email, name: name, password: password })
-                    .then(result => resp.json("  Account Created"))
-                    .catch(err => resp.json(err))
-            }
-        }).catch(err => resp.json("failed "))
-})
-
+ 
 app.get('/item', async (req, res) => {
     try {
         const images = await items.find();
