@@ -29,10 +29,10 @@ const WishlistItem = require('./db/Users/Wishlist');
 const app = express();
 
 app.use(cors({
+app.use(cors({
   origin: [
     "http://localhost:5173",
-    "http://localhost:5174",
-    "https://smartbridge-internship-project.vercel.app"
+    "https://sravani-guddati9-smartbridge-intern.vercel.app"
   ],
   credentials: true
 }));
