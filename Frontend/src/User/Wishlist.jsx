@@ -14,7 +14,7 @@ function Wishlist() {
     const user = JSON.parse(localStorage.getItem('user'));
     if (user) {
     axios
-      .get(`http://localhost:4000/wishlist/${user.id}`) // Adjust the endpoint accordingly
+      .get(`https://smartbridge-internship-project.onrender.com/wishlist/${user.id}`) // Adjust the endpoint accordingly
       .then((response) => {
         const wishlistData = response.data;
         setWishlist(wishlistData);
@@ -30,12 +30,12 @@ function Wishlist() {
   const removeFromWishlist = async (itemId) => {
     try {
       // Remove item from the wishlist
-      await axios.post(`http://localhost:4000/wishlist/remove`, { itemId }); // Adjust the endpoint accordingly
+      await axios.post(`https://smartbridge-internship-project.onrender.com/wishlist/remove`, { itemId }); // Adjust the endpoint accordingly
 
       // Refresh the wishlist items
       const user = JSON.parse(localStorage.getItem('user'));
       if(user){
-      const response = await axios.get(`http://localhost:4000/wishlist/${user.id}`,); // Adjust the endpoint accordingly
+      const response = await axios.get(`https://smartbridge-internship-project.onrender.com/wishlist/${user.id}`,); // Adjust the endpoint accordingly
       setWishlist(response.data);
     } 
     else{
@@ -55,7 +55,7 @@ function Wishlist() {
         {wishlist.map((item) => (
           <div key={item._id} className="bg-white p-4 rounded shadow">
             <img
-              src={`http://localhost:4000/${item.itemImage}`}
+              src={`https://smartbridge-internship-project.onrender.com/${item.itemImage}`}
               alt="Item Image"
               className="rounded-t-lg"
               style={{ height: '350px', width: '500px' }}

@@ -18,7 +18,7 @@ function Orders() {
     const user = JSON.parse(localStorage.getItem('user'));
     console.log(user)
     if (user) {
-      axios.get(`http://localhost:4000/getsellerorders/${user.id}`)
+      axios.get(`https://smartbridge-internship-project.onrender.com/getsellerorders/${user.id}`)
   .then((response) => {
     setOrders(response.data);
   })
@@ -71,7 +71,7 @@ function Orders() {
               >
                 <div style={{ display: 'flex', justifyContent: 'space-around' }}>
                   <div>
-                    <img src={`http://localhost:4000/${item?.itemImage}`} alt={`${item.itemtype} Image`} style={{ height: "80px" }} />
+                    <img src={`https://smartbridge-internship-project.onrender.com/${item?.itemImage}`} alt={`${item.itemtype} Image`} style={{ height: "80px" }} />
                   </div>
                   <div>
                     <p>ProductName:</p>

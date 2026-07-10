@@ -22,7 +22,7 @@
 //   const { id } = useParams();
 
 //   useEffect(() => {
-//     axios.get(`http://localhost:8000/item/${id}`)
+//     axios.get(`https://smartbridge-internship-project.onrender.com/item/${id}`)
 //       .then((resp) => {
 //         console.log(resp);
 //         setItem(resp.data); // Set item to the fetched data (an object, not an array)
@@ -65,7 +65,7 @@
 //       updatedFormData.userId=userId
 //       updatedFormData.userName=userName
       
-//       await axios.post('http://localhost:8000/userorder', updatedFormData);
+//       await axios.post('https://smartbridge-internship-project.onrender.com/userorder', updatedFormData);
 //       console.log(updatedFormData);
 //       alert('ordered successfully');
 //       navigate('/uhome');
@@ -163,7 +163,7 @@
 //              {item && (
 //                 <div>
 //                     <div style={{ display: "flex", justifyContent: "center", height: "100px",width:"100px" }} >
-//                         <img src={`http://localhost:8000/${item?.itemImage}`} alt={`${item.itemtype} Image`} />
+//                         <img src={`https://smartbridge-internship-project.onrender.com/${item?.itemImage}`} alt={`${item.itemtype} Image`} />
 //                     </div>
 //                     {/* <h1 className='text-center'> {item.itemtype}-{item._id.slice(3, 7)}</h1> */}
 //                     {/* <div style={{ display: 'flex', justifyContent: 'space-around' }}> */}
@@ -220,7 +220,7 @@ function OrderItem() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`http://localhost:4000/item/${id}`)
+    axios.get(`https://smartbridge-internship-project.onrender.com/item/${id}`)
       .then((resp) => {
         setItem(resp.data);
       })
@@ -267,7 +267,7 @@ function OrderItem() {
       updatedFormData.userName = username;
 
       // Post the updatedFormData
-      await axios.post('http://localhost:4000/userorder', updatedFormData);
+      await axios.post('https://smartbridge-internship-project.onrender.com/userorder', updatedFormData);
       console.log(updatedFormData);
       alert('Ordered successfully');
       navigate('/myorders');
@@ -344,7 +344,7 @@ function OrderItem() {
                 <div>
                   <div style={{ display: "flex", justifyContent: "flex-end", height: "100%",width:"100%" }} >
                   <div style={{ height: "100px",width:"50px" }} >
-                        <img src={`http://localhost:4000/${item?.itemImage}`} alt={`${item.itemtype} Image`} />
+                        <img src={`https://smartbridge-internship-project.onrender.com/${item?.itemImage}`} alt={`${item.itemtype} Image`} />
                         {/* <p className='text-end'>{item.itemtype}-{item._id.slice(3, 7)}</p> */}
                         <p className='text-end'>{item.itemtype}-{item._id ? item._id.slice(3, 7) : ''}</p>
                     </div>

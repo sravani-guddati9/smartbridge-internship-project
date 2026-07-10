@@ -10,7 +10,7 @@ function Myproducts() {
     const user = JSON.parse(localStorage.getItem('user'));
     if (user) {
       axios
-        .get(`http://localhost:4000/getitem/${user.id}`)
+        .get(`https://smartbridge-internship-project.onrender.com/getitem/${user.id}`)
         .then((response) => {
           console.log('Response data:', response.data); // Log the response data
           const taskData = response.data;
@@ -25,7 +25,7 @@ function Myproducts() {
   }, []);
 
   const deleteItem=((Id)=>{
-    axios.delete(`http://localhost:4000/itemdelete/${Id}`);
+    axios.delete(`https://smartbridge-internship-project.onrender.com/itemdelete/${Id}`);
     window.location.assign('/myproducts');
     alert('Item is deleted');
   })
@@ -46,7 +46,7 @@ function Myproducts() {
               </button>
                 </div>
             <img
-              src={`http://localhost:4000/${item.itemImage}`}
+              src={`https://smartbridge-internship-project.onrender.com/${item.itemImage}`}
               alt="Item Image"
               className="rounded-t-lg" style={{height:"350px",width:"500px"}}
               // className="w-full h-50 object-cover mb-4 rounded"

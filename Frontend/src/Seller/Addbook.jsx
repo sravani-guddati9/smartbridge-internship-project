@@ -43,7 +43,7 @@ const handleSubmit = async (e) => {
        formDataToSend.append('userName', user.name);
        formDataToSend.append('userId', user.id);
 
-      await axios.post('http://localhost:4000/items', formDataToSend);
+      await axios.post('https://smartbridge-internship-project.onrender.com/items', formDataToSend);
       alert('Book added successfully');
       navigate('/myproducts')
     } catch (error) {

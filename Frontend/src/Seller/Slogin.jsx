@@ -14,7 +14,7 @@ const Slogin = () => {
     e.preventDefault();
     let payload = { email, password };
     axios
-      .post("http://localhost:4000/slogin", payload)
+      .post("https://smartbridge-internship-project.onrender.com/slogin", payload)
       .then((res) => {
         console.log("login: " + res.data.Status);
         if (res.data.Status === "Success") {

@@ -20,7 +20,7 @@ function Shome() {
       console.log(user)
       if (user) {
         axios
-          .get(`http://localhost:4000/getitem/${user.id}`)
+          .get(`https://smartbridge-internship-project.onrender.com/getitem/${user.id}`)
           .then((response) => {
             console.log('Response data:', response.data); // Log the response data
             const taskData = response.data;
@@ -34,7 +34,7 @@ function Shome() {
       }
 
       // Fetch orders data
-     axios.get(`http://localhost:4000/getsellerorders/${user.id}`)
+     axios.get(`https://smartbridge-internship-project.onrender.com/getsellerorders/${user.id}`)
     .then((response) => {
       setOrders(response.data);
     })

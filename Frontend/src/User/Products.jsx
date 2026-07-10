@@ -11,7 +11,7 @@ function Products() {
   useEffect(() => {
     // Fetch all items
     axios
-      .get(`http://localhost:4000/item`)
+      .get(`https://smartbridge-internship-project.onrender.com/item`)
       .then((response) => {
         const taskData = response.data;
         setItems(taskData);
@@ -23,7 +23,7 @@ function Products() {
     // Fetch wishlist items
     const user = JSON.parse(localStorage.getItem('user'));
     if(user){
-    axios.get(`http://localhost:4000/wishlist/${user.id}`)
+    axios.get(`https://smartbridge-internship-project.onrender.com/wishlist/${user.id}`)
     .then((response) => {
       const wishlistData = response.data;
       setWishlist(wishlistData);
@@ -60,11 +60,11 @@ function Products() {
       console.log('itemId2:', title);
   
       // Add item to the wishlist
-      await axios.post(`http://localhost:4000/wishlist/add`, { itemId: itemId2, title, itemImage,userId,userName });
+      await axios.post(`https://smartbridge-internship-project.onrender.com/wishlist/add`, { itemId: itemId2, title, itemImage,userId,userName });
       // Refresh the wishlist items
       const user = JSON.parse(localStorage.getItem('user'));
       if(user){
-      axios.get(`http://localhost:4000/wishlist/${user.id}`)
+      axios.get(`https://smartbridge-internship-project.onrender.com/wishlist/${user.id}`)
       .then((response) => {
         const wishlistData = response.data;
         setWishlist(wishlistData);
@@ -82,12 +82,12 @@ function Products() {
   const removeFromWishlist = async (itemId) => {
     try {
       // Remove item from the wishlist
-      await axios.post(`http://localhost:4000/wishlist/remove`, { itemId }); // Adjust the endpoint accordingly
+      await axios.post(`https://smartbridge-internship-project.onrender.com/wishlist/remove`, { itemId }); // Adjust the endpoint accordingly
 
       // Refresh the wishlist items
       const user = JSON.parse(localStorage.getItem('user'));
       if(user){
-      const response = await axios.get(`http://localhost:4000/wishlist/${user.id}`,); // Adjust the endpoint accordingly
+      const response = await axios.get(`https://smartbridge-internship-project.onrender.com/wishlist/${user.id}`,); // Adjust the endpoint accordingly
       setWishlist(response.data);
     } 
     else{
@@ -111,7 +111,7 @@ function Products() {
           {items.map((item) => (
             <div key={item._id} className="bg-white p-4 rounded shadow">
               <img
-                src={`http://localhost:4000/${item.itemImage}`}
+                src={`https://smartbridge-internship-project.onrender.com/${item.itemImage}`}
                 alt="Item Image"
                 className="rounded-t-lg"
                 style={{ height: '350px', width: '500px' }}

@@ -14,7 +14,7 @@ const Ssignup = () => {
     let payload = { name, email, password };
 
     axios
-      .post("http://localhost:4000/ssignup", payload)
+      .post("https://smartbridge-internship-project.onrender.com/ssignup", payload)
       .then((result) =>{
         alert('Account created')
         console.log(result)

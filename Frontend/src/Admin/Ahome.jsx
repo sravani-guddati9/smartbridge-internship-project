@@ -11,7 +11,7 @@
 
 //   useEffect(() => {
 //     // Fetch user data
-//     axios.get(`http://localhost:8000/getusers`)
+//     axios.get(`https://smartbridge-internship-project.onrender.com/getusers`)
 //       .then((response) => {
 //         setUsers(response.data);
 //       })
@@ -20,7 +20,7 @@
 //       });
 
 //     // Fetch booking data
-//     axios.get(`http://localhost:8000/getrides`)
+//     axios.get(`https://smartbridge-internship-project.onrender.com/getrides`)
 //       .then((response) => {
 //         setCars(response.data);
 //       })
@@ -103,7 +103,7 @@ function Ahome() {
 
   useEffect(() => {
     // Fetch user data
-    axios.get(`http://localhost:4000/users`)
+    axios.get(`https://smartbridge-internship-project.onrender.com/users`)
       .then((response) => {
         setUsers(response.data);
       })
@@ -112,7 +112,7 @@ function Ahome() {
       });
 
     // Fetch vendors data
-    axios.get(`http://localhost:4000/sellers`)
+    axios.get(`https://smartbridge-internship-project.onrender.com/sellers`)
       .then((response) => {
         setVendors(response.data);
       })
@@ -121,7 +121,7 @@ function Ahome() {
       });
 
       // Fetch items data
-    axios.get(`http://localhost:4000/item`)
+    axios.get(`https://smartbridge-internship-project.onrender.com/item`)
     .then((response) => {
       setItems(response.data);
     })
@@ -130,7 +130,7 @@ function Ahome() {
     });
 
       // Fetch orders data
-    axios.get(`http://localhost:4000/orders`)
+    axios.get(`https://smartbridge-internship-project.onrender.com/orders`)
     .then((response) => {
       setOrders(response.data);
     })

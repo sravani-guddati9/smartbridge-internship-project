@@ -22,7 +22,7 @@ const Seller = () => {
   };
 
    useEffect(() => {
-    axios.get(`http://localhost:4000/sellers`)
+    axios.get(`https://smartbridge-internship-project.onrender.com/sellers`)
       .then((response) => {
         setUsers(response.data);
         // setLoading(false);
@@ -34,12 +34,12 @@ const Seller = () => {
 }, []);
 
 const deleteData = (taskId) => {
-    axios.delete(`http://localhost:4000/sellerdelete/${taskId}`);
+    axios.delete(`https://smartbridge-internship-project.onrender.com/sellerdelete/${taskId}`);
     window.location.assign('/vendors');
     alert('User is deleted');
   };
   const deleteitem = (taskId) => {
-    axios.delete(`http://localhost:4000/useritemdelete/${taskId}`);
+    axios.delete(`https://smartbridge-internship-project.onrender.com/useritemdelete/${taskId}`);
     window.location.assign('/users');
     alert('deleted');
   };
@@ -50,7 +50,7 @@ const deleteData = (taskId) => {
   
   const fetchUserBikeData = (userId) => {
    
-    axios.get(`http://localhost:4000/getitem/${userId}`)
+    axios.get(`https://smartbridge-internship-project.onrender.com/getitem/${userId}`)
 
     .then((response) => {
       setUserbookings(response.data);
@@ -132,7 +132,7 @@ const deleteData = (taskId) => {
                               >
                                 <div style={{ display: 'flex', justifyContent: 'space-around' }}>
                                   <div>
-                                    <img src={`http://localhost:4000/${item?.itemImage}`} alt={`${item.itemtype} Image`} style={{ height: "80px",width:"120px" }} /> <br/>
+                                    <img src={`https://smartbridge-internship-project.onrender.com/${item?.itemImage}`} alt={`${item.itemtype} Image`} style={{ height: "80px",width:"120px" }} /> <br/>
                                   </div>
                                   <div>
                                     <p>Product Name:</p>

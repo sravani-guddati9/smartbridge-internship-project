@@ -13,7 +13,7 @@
 //     const user = JSON.parse(localStorage.getItem('user'));
 //     // if (user) {
 //       axios
-//         .get(`http://localhost:8000/getorders/${user.id}`)
+//         .get(`https://smartbridge-internship-project.onrender.com/getorders/${user.id}`)
 //         .then((response) => {
 //           const taskData = response.data;
 //           setCars(taskData);
@@ -54,7 +54,7 @@
 //               >
 //                 <div style={{ display: 'flex', justifyContent: 'space-around' }}>
 //                  <div >
-//                  <img src={`http://localhost:8000/${item?.itemImage}`} alt={`${item.itemtype} Image`} style={{height:"80px"}} />
+//                  <img src={`https://smartbridge-internship-project.onrender.com/${item?.itemImage}`} alt={`${item.itemtype} Image`} style={{height:"80px"}} />
 //                  </div>
 //                 <div>
 //                 <p>ProductName:</p>
@@ -110,7 +110,7 @@
 //   useEffect(() => {
 //     const user = JSON.parse(localStorage.getItem('user'));
 
-//     axios.get(`http://localhost:8000/getorders/${user.id}`)
+//     axios.get(`https://smartbridge-internship-project.onrender.com/getorders/${user.id}`)
 //       .then((response) => {
 //         const taskData = response.data;
 //         // Update order status based on booking date
@@ -163,7 +163,7 @@
 //               >
 //                 <div style={{ display: 'flex', justifyContent: 'space-around' }}>
 //                   <div >
-//                   <img src={`http://localhost:8000/${item?.itemImage}`} alt={`${item.itemtype} Image`} style={{height:"80px"}} />
+//                   <img src={`https://smartbridge-internship-project.onrender.com/${item?.itemImage}`} alt={`${item.itemtype} Image`} style={{height:"80px"}} />
 //                   </div>
 //                  <div>
 //                  <p>ProductName:</p>
@@ -222,7 +222,7 @@ function Myorders() {
     const user = JSON.parse(localStorage.getItem('user'));
     if (user) {
     axios
-      .get(`http://localhost:4000/getorders/${user.id}`)
+      .get(`https://smartbridge-internship-project.onrender.com/getorders/${user.id}`)
       .then((response) => {
         const taskData = response.data;
         setCars(taskData);
@@ -275,7 +275,7 @@ function Myorders() {
               >
                 <div style={{ display: 'flex', justifyContent: 'space-around' }}>
                   <div>
-                    <img  src={`http://localhost:4000/${item.itemImage}`}alt={`${item.itemtype} Image`} style={{ height: "80px" }} />
+                    <img  src={`https://smartbridge-internship-project.onrender.com/${item.itemImage}`}alt={`${item.itemtype} Image`} style={{ height: "80px" }} />
                   </div>
                   <div>
                     <p>ProductName:</p>
