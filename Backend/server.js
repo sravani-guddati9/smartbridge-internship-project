@@ -365,6 +365,9 @@ app.post('/ssignup', (req, resp) => {
     resp.send("Signup completed");
 
 });
+app.get("/", (req, res) => {
+  res.send("BookStore Backend API is Running Successfully 🚀");
+});
 app.listen(PORT, () => {
     console.log(`server is running on  ${PORT}`)
 })  
