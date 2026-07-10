@@ -1,19 +1,21 @@
 console.log("MONGO_URI =", process.env.MONGO_URI);
 require('dotenv').config();
-const express = require('express')
-const PORT = 4000
-const cors = require('cors')
-require('./db/config')
-const multer = require('multer'); // Import multer
-const Admin = require('./db/Admin/Admin')
-const users = require('./db/Users/userschema')
-const seller = require('./db/Seller/Sellers')
-const items = require('./db/Seller/Additem')
-const myorders = require('./db/Users/myorders')
-const WishlistItem = require('./db/Users/Wishlist')     
+
+const express = require('express');
+const PORT = process.env.PORT || 4000;
+const cors = require('cors');
+
+require('./db/config');
+const multer = require('multer');
+
+const Admin = require('./db/Admin/Admin');
+const users = require('./db/Users/userschema');
+const seller = require('./db/Seller/Sellers');
+const items = require('./db/Seller/Additem');
+const myorders = require('./db/Users/myorders');
+const WishlistItem = require('./db/Users/Wishlist');
 
 const app = express();
-const cors = require("cors");
 
 app.use(cors({
   origin: "https://smartbridge-internship-project.vercel.app",
@@ -21,14 +23,6 @@ app.use(cors({
 }));
 
 app.use(express.json());
-
-app.use(express.json());
-const storage = multer.diskStorage({
-    destination: 'uploads', // The directory where uploaded files will be stored
-    filename: function (req, file, callback) {
-        callback(null, Date.now() + '-' + file.originalname); // Set the file name
-    },
-});
 
 const upload = multer({ storage });
 app.use('/uploads', express.static('uploads'));
