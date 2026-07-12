@@ -163,6 +163,7 @@ app.post('/slogin', (req, resp) => {
 
 // Register Api
 app.post('/signup', async (req, resp) => {
+    console.log("Signup API Hit");
 
     try {
         const { name, email, password } = req.body;
