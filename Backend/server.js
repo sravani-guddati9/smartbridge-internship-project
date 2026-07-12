@@ -352,14 +352,27 @@ app.post('/wishlist/add', async (req, res) => {
     }
   });
 
-app.post('/ssignup', (req, resp) => {
+app.post('/ssignup', async (req, resp) => {
+    try {
+        const { name, email, password } = req.body;
 
-    const {name, email, password} = req.body;
+        const existingSeller = await seller.findOne({ email });
 
-    console.log(req.body);
+        if (existingSeller) {
+            return resp.json("Already have an account");
+        }
 
-    resp.send("Signup completed");
+        await seller.create({
+            name,
+            email,
+            password
+        });
 
+        resp.json("Account Created");
+    } catch (err) {
+        console.log(err);
+        resp.status(500).json(err.message);
+    }
 });
 app.get("/", (req, res) => {
   res.send("BookStore Backend API is Running Successfully 🚀");
